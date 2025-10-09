@@ -9,7 +9,7 @@ pipeline {
         stage('checkout code')
         {
         steps{
-            git branch: 'main' url: "https://github.com/danish573/STATIC-WEB-APP.git"
+            git branch: 'main' url: 'https://github.com/danish573/STATIC-WEB-APP.git'
             }
         }
         stage('Minify files')
