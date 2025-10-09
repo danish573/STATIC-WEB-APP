@@ -2,7 +2,7 @@
 set -e
 
 COMMAND=$1
-SOURCE_DIR="src"
+SOURCE_DIR="."
 BUILD_DIR="build"
 
 if [ "$COMMAND" = "minify" ]; then
