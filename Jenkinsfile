@@ -27,13 +27,14 @@ pipeline {
         }
     }
 
-    post{
-        success{
-            echo "✅ Deployment Successful! Site is live at: http://$S3_BUCKET.s3-website-$AWS_REGION.amazonaws.com"
-        }
-        failure{
-            echo "❌ Build failed! Check logs."
-        }
+   post {
+    success {
+        echo "✅ Deployment Successful! Site is live at: http://${env.S3_BUCKET}.s3-website-${env.AWS_REGION}.amazonaws.com"
     }
+    failure {
+        echo "❌ Build failed! Check logs."
+    }
+}
+
 
 }
