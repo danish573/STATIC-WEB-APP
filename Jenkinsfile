@@ -1,9 +1,10 @@
 pipeline {
     agent any
     environment {
-        S3_BUCKET = "static_website_s3_bucket"
-        AWS_REGION ="ap-south-1"
+          variable "s3_bucket_name" {
+          default = "static-wl-website-s3-bucket"
     }
+
 
     stages{
         stage('checkout code')
