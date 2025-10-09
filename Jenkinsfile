@@ -2,7 +2,7 @@ pipeline {
     agent any
     environment {
         S3_BUCKET = "static_website_s3_bucket"
-        AWS_REGION ="us-east-1"
+        AWS_REGION ="ap-south-1"
     }
 
     stages{
@@ -19,22 +19,21 @@ pipeline {
                 sh 'bash scripts/minify_and_deploy.sh minify'
             }
         }
-        stage('Deploy to S3'){
+          stage('Deploy to S3'){
             steps{
-                echo "Deploying Static site to s3"
-                sh 'bash scripts/minify_and_deploy.sh deploy'
+                echo "Deploying Static site to S3"
+                sh "bash scripts/minify_and_deploy.sh deploy $S3_BUCKET $AWS_REGION"
             }
-        }   
+        }
     }
 
     post{
         success{
-            echo "Deployment Successful! Site is live at: http://$S3_BUCKET.s3-website-$AWS_REGION.amazonaws.com"
+            echo "✅ Deployment Successful! Site is live at: http://$S3_BUCKET.s3-website-$AWS_REGION.amazonaws.com"
         }
         failure{
             echo "❌ Build failed! Check logs."
         }
     }
-
 
 }
