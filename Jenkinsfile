@@ -22,7 +22,7 @@ pipeline {
         stage('Deploy to S3'){
             steps{
                 echo "Deploying Static site to s3"
-                sh 'bash sripts/minify_and_deploy.sh deploy'
+                sh 'bash scripts/minify_and_deploy.sh deploy'
             }
         }   
     }
