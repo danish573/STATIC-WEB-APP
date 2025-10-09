@@ -10,8 +10,9 @@ if [ "$COMMAND" = "minify" ]; then
     rm -rf "$BUILD_DIR"
     mkdir -p "$BUILD_DIR"
 
-    echo "✨ Minifying HTML, CSS, and JS..."
-    cp -r "$SOURCE_DIR"/* "$BUILD_DIR"/
+    echo "✨ Copying and minifying HTML, CSS, and JS..."
+    # Copy all files except build/ itself
+    rsync -av --exclude="$BUILD_DIR" "$SOURCE_DIR"/ "$BUILD_DIR"/
 
     find "$BUILD_DIR" -type f -name "*.html" -exec minify {} -o {} \;
     find "$BUILD_DIR" -type f -name "*.css" -exec minify {} -o {} \;
