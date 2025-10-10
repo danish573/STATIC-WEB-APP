@@ -5,10 +5,9 @@ variable "aws_region" {
 }
 
 variable "s3_bucket_name" {
-  description = "S3 BucketUnique Name"
-  type        = string
-  default     = "static-website-s3-bucket-573"
+  default = "static-wl-website-s3-bucket"
 }
+
 
 variable "ami_id" {
   description = "Ubuntu Image ID"
