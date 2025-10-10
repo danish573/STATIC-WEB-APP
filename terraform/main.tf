@@ -22,7 +22,7 @@ data "aws_vpc" "default" {
 }
 
 
-#### S3 Bucket Setup for Security an Privacy data protecction #####
+### S3 Bucket Setup for Security an Privacy data protecction #####
 
 resource "aws_s3_bucket" "static_website" {
   bucket        = var.s3_bucket_name
