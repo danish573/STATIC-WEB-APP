@@ -21,6 +21,7 @@ data "aws_vpc" "default" {
   default = true
 }
 
+
 #### S3 Bucket Setup for Security an Privacy data protecction #####
 
 resource "aws_s3_bucket" "static_website" {
