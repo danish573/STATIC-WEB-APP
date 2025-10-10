@@ -1,8 +1,8 @@
 pipeline {
     agent any
     environment {
-          variable "s3_bucket_name" {
-          default = "static-wl-website-s3-bucket"
+          S3_BUCKET = "static-wl-website-s3-bucket"
+          AWS_REGION = "ap-south-1"
     }
 
 
